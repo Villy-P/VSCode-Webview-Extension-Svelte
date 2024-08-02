@@ -5,9 +5,6 @@ import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import { sveltePreprocess } from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
-import postcss from 'rollup-plugin-postcss';
-import tailwindcss from 'tailwindcss';
-import tailwindConfig from './tailwind.config.js';
 import { spawn } from 'child_process';
 
 const production = !process.env.ROLLUP_WATCH;
@@ -49,21 +46,7 @@ export default {
 				dev: !production
 			}
 		}),
-		// we'll extract any component CSS out into
-		// a separate file - better for performance
-		postcss({
-			config: {
-			  path: './postcss.config.js',
-			},
-			extensions: ['.css'],
-			minimize: true,
-			inject: {
-			  insertAt: 'top',
-			},
-			plugins: [tailwindcss(tailwindConfig)],
-			output: "bundle.css"
-		}),
-
+		
 		// If you have external dependencies installed from
 		// npm, you'll most likely need these plugins. In
 		// some cases you'll need additional configuration -
