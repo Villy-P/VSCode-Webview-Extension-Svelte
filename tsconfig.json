@@ -1,17 +1,26 @@
+// This is the tsconfig file for the svelte files within your project
 {
 	"compilerOptions": {
-		"module": "Node16",
-		"target": "ES2022",
-		"outDir": "out",
-		"lib": [
-			"ES2022"
-		],
+		"module": "esnext",
+		"moduleResolution": "bundler",
+		"target": "ESNext",
+		/**
+		Svelte Preprocess cannot figure out whether you have a value or a type, so tell TypeScript
+		to enforce using `import type` instead of `import` for Types.
+		*/
+		"verbatimModuleSyntax": true,
+		/**
+		To have warnings/errors of the Svelte compiler at the correct position,
+		enable source maps by default.
+		*/
 		"sourceMap": true,
-		"rootDir": "src",
-		"strict": true   /* enable all strict type-checking options */
-		/* Additional Checks */
-		// "noImplicitReturns": true, /* Report error when not all code paths in function return a value. */
-		// "noFallthroughCasesInSwitch": true, /* Report errors for fallthrough cases in switch statement. */
-		// "noUnusedParameters": true,  /* Report errors on unused parameters. */
-	}
+
+		"strict": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"noEmit": true
+	},
+  
+	"include": ["src/**/*", "src/main.ts"],
+	"exclude": ["node_modules/*", "__sapper__/*", "public/*"]
 }
