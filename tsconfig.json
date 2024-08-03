@@ -22,5 +22,5 @@
 	},
   
 	"include": ["src/**/*", "src/main.ts"],
-	"exclude": ["node_modules/*", "__sapper__/*", "public/*"]
+	"exclude": ["node_modules/*", "__sapper__/*", "public/*", "src/extension/**"]
 }
