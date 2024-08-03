@@ -5,6 +5,7 @@ import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import { sveltePreprocess } from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
+import postcss from 'rollup-plugin-postcss';
 import { spawn } from 'child_process';
 
 const production = !process.env.ROLLUP_WATCH;
@@ -60,6 +61,19 @@ export default {
 		typescript({
 			sourceMap: !production,
 			inlineSources: !production
+		}),
+
+		postcss({
+			config: {
+			  path: './postcss.config.js',
+			},
+			extensions: ['.css'],
+			minimize: true,
+			inject: {
+			  insertAt: 'top',
+			},
+			plugins: [tailwindcss(tailwindConfig)],
+			output: "bundle.css"
 		}),
 
 		// In dev mode, call `npm run start` once
