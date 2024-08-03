@@ -72,7 +72,6 @@ export default {
 			inject: {
 			  insertAt: 'top',
 			},
-			plugins: [tailwindcss(tailwindConfig)],
 			output: "bundle.css"
 		}),
 
