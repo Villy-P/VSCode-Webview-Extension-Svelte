@@ -11,6 +11,6 @@
         "resolveJsonModule": true
     },
   
-	"include": ["src/extension.ts", "src/extension/**"],
+	"include": ["src/extension.ts", "src/extension/**.ts"],
 	"exclude": ["node_modules/*", "__sapper__/*", "public/*"]
 }
