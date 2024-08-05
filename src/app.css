@@ -1,4 +1,15 @@
 .title {
+    width: fit-content;
 	font-size: 72px;
-	background: -webkit-linear-gradient(#004cff, #ff00d4);
+	color: #d900ff;
+	background-image: -webkit-linear-gradient(
+		45deg,
+		#d900ff 0%,
+		#328ffa 50%,
+		#00b7ff 100%
+	);
+	background-clip: text;
+	-webkit-background-clip: text;
+	text-emphasis-color: transparent;
+	-webkit-text-fill-color: transparent;
 }
