@@ -82,3 +82,7 @@ export function deactivate() {}
 
 <p class="title">Hello, World!</p>
 ```
+
+## Contributing
+
+Check out the [contributing guidelines](.github/CONTRIBUTING.md).
