@@ -76,7 +76,8 @@ export class SveltePanel {
 	}
 
 	public getWebviewContent(webview: Webview, uri: Uri) {
-		const scriptUri = getUri(webview, uri, ["out", "compiled", "bundle.css"]);
+		const scriptUri = getUri(webview, uri, ["out", "compiled", "bundle.js"]);
+		const styleUri = getUri(webview, uri, ["out", "compiled", "bundle.css"]);
 		const nonce = getNonce();
 
 		return /*html*/ `
@@ -87,6 +88,7 @@ export class SveltePanel {
                 <meta charset="UTF-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src ${webview.cspSource}; script-src 'nonce-${nonce}';">
+				<link href="${styleUri}" rel="stylesheet" />
                 <script defer nonce="${nonce}" src="${scriptUri}"></script>
                 </head>
                 <body>
