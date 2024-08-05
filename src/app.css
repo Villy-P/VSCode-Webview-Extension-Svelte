@@ -1,15 +1,29 @@
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 .title {
     width: fit-content;
-	font-size: 72px;
-	color: #d900ff;
-	background-image: -webkit-linear-gradient(
-		45deg,
-		#d900ff 0%,
-		#328ffa 50%,
-		#00b7ff 100%
-	);
-	background-clip: text;
-	-webkit-background-clip: text;
-	text-emphasis-color: transparent;
-	-webkit-text-fill-color: transparent;
+    font-size: 72px;
+    color: #d900ff;
+    background-image: -webkit-linear-gradient(
+        45deg,
+        #d900ff 0%,
+        #328ffa 50%,
+        #00b7ff 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-emphasis-color: transparent;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
 }
