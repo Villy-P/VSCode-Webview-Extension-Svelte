@@ -4,5 +4,5 @@
 <p>src/extension/ --- Place all TypeScript files relating to your backend here!</p>
 <p>src/App.svelte --- This is your webview page</p>
 <p>src/components/ --- Place your components here</p>
-<p>src/app.css --- Your base CSS file</p>
+<p>src/css/ --- All your CSS Should go here</p>
 <p>You can place TypeScript files that relate to the frontend anywhere in the src directory.</p>
