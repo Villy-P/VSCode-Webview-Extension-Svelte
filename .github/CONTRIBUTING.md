@@ -17,5 +17,5 @@ If you have an addition to the project, or are fixing an issue, create a Pull Re
 
 Make sure you follow [Conventional Commit Messages](https://gist.github.com/qoomon/5dfcdf8eec66a051ecd85625518cfd13).
 
-When you finish, add your changes to the `CHANGELOG.md`.
+When you finish, add your changes to the `CHANGELOG.md` in Unreleased.
 Make sure to follow [Keep a Changelog](http://keepachangelog.com/) guidelines.
