@@ -24,11 +24,11 @@ Read the `Directory Composition` section to see where to put which files.
 
 This is your webview itself and all files pertaining to it:
 
-| File / Folder | Use |
-| ------------- | --- |
-| `src/main.ts`     | The base file for your Svelte Webview |
-| `src/App.svelte`  | This is your webview page |
-| `src/css/`        | This folder holds all your CSS |
+| File / Folder     | Use                                         |
+| ----------------- | ------------------------------------------- |
+| `src/main.ts`     | The base file for your Svelte Webview       |
+| `src/App.svelte`  | This is your webview page                   |
+| `src/css/`        | This folder holds all your CSS              |
 | `src/components/` | You can put all your Svelte components here |
 
 You can put `ts` files that you use on the front end anywhere in the project directory EXCEPT the `src/extension` folder.
@@ -37,8 +37,8 @@ You can put `ts` files that you use on the front end anywhere in the project dir
 
 This is the VSCode Backend that will contain all files used by the backend.
 
-| File / Folder | Use |
-| ------------- | --- |
-| `src/extension/extension.ts` | This is the base file for your extension. |
-| `src/extension/panel.ts` | This is the class that handles the creation of the Panel. |
-| `src/extension/`  | Place all utility `ts` files here |
+| File / Folder                | Use                                                       |
+| ---------------------------- | --------------------------------------------------------- |
+| `src/extension/extension.ts` | This is the base file for your extension.                 |
+| `src/extension/panel.ts`     | This is the class that handles the creation of the Panel. |
+| `src/extension/`             | Place all utility `ts` files here                         |
