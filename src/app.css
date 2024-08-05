@@ -1,3 +1,4 @@
-.main {
-    font-size: larger;
+.title {
+	font-size: 72px;
+	background: -webkit-linear-gradient(#004cff, #ff00d4);
 }

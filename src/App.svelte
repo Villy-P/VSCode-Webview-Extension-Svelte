@@ -1,6 +1,6 @@
 <script>
 	import Data from "./components/data.svelte";
-
 </script>
-<p>Hello, World!</p>
+
+<p class="title">Hello, World!</p>
 <Data/>
