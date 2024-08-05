@@ -86,3 +86,11 @@ export function deactivate() {}
 ## Contributing
 
 Check out the [contributing guidelines](.github/CONTRIBUTING.md).
+
+## License
+
+File Makeup Viewer is licensed under the [MIT](./LICENSE) license
+
+## Changelog
+
+View all upcoming and previous releases [here](./CHANGELOG.md)
