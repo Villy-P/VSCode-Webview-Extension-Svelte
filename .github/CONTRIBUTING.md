@@ -19,3 +19,9 @@ Make sure you follow [Conventional Commit Messages](https://gist.github.com/qoom
 
 When you finish, add your changes to the `CHANGELOG.md` in Unreleased.
 Make sure to follow [Keep a Changelog](http://keepachangelog.com/) guidelines.
+
+When you do add to the Changelog, add all of your commit names exactly as they appear, along with your handle after in parenthesis.
+
+Example:
+
+`chore: add new file (@Villy-P)`
