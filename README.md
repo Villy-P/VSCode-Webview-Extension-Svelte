@@ -17,6 +17,7 @@ Before you begin making changes, change your extension details in `package.json`
 
 After that, you are good to go!
 Read the `Directory Composition` section to see where to put which files.
+Read the `Examples` section to see examples of what to do.
 
 ## Directory Composition
 
@@ -42,3 +43,42 @@ This is the VSCode Backend that will contain all files used by the backend.
 | `src/extension/extension.ts` | This is the base file for your extension.                 |
 | `src/extension/panel.ts`     | This is the class that handles the creation of the Panel. |
 | `src/extension/`             | Place all utility `ts` files here                         |
+
+## Examples
+
+### Sending data from the backend to front end
+
+`src/extension/extension.ts`
+
+``` ts
+import * as vscode from 'vscode';
+import { SveltePanel } from './panel';
+
+export function activate(context: vscode.ExtensionContext) {
+ let disposable = vscode.commands.registerCommand('extension-name.helloWorld', () => {
+  SveltePanel.render("showPanel", "Panel Name", context.extensionUri);
+
+  SveltePanel.currentPanel?.post({
+   title: "data-name",
+   msg: "This is a message from the backend"
+  });
+ });
+
+ context.subscriptions.push(disposable);
+}
+
+export function deactivate() {}
+```
+
+`src/App.svelte`
+
+``` html
+<script>
+ window.addEventListener("message", (e) => {
+  if (e.data.title === "data-name")
+   console.log(e.data.msg);
+ });
+</script>
+
+<p class="title">Hello, World!</p>
+```
