@@ -1,12 +1,12 @@
-import svelte from 'rollup-plugin-svelte';
-import commonjs from '@rollup/plugin-commonjs';
-import resolve from '@rollup/plugin-node-resolve';
-import livereload from 'rollup-plugin-livereload';
-import { terser } from 'rollup-plugin-terser';
-import { sveltePreprocess } from 'svelte-preprocess';
-import typescript from '@rollup/plugin-typescript';
-import postcss from 'rollup-plugin-postcss';
-import { spawn } from 'child_process';
+import svelte from "rollup-plugin-svelte";
+import commonjs from "@rollup/plugin-commonjs";
+import resolve from "@rollup/plugin-node-resolve";
+import livereload from "rollup-plugin-livereload";
+import { terser } from "rollup-plugin-terser";
+import { sveltePreprocess } from "svelte-preprocess";
+import typescript from "@rollup/plugin-typescript";
+import postcss from "rollup-plugin-postcss";
+import { spawn } from "child_process";
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -20,34 +20,34 @@ function serve() {
 	return {
 		writeBundle() {
 			if (server) return;
-			server = spawn('npm', ['run', 'start', '--', '--dev'], {
-				stdio: ['ignore', 'inherit', 'inherit'],
-				shell: true
+			server = spawn("npm", ["run", "start", "--", "--dev"], {
+				stdio: ["ignore", "inherit", "inherit"],
+				shell: true,
 			});
 
-			process.on('SIGTERM', toExit);
-			process.on('exit', toExit);
-		}
+			process.on("SIGTERM", toExit);
+			process.on("exit", toExit);
+		},
 	};
 }
 
 export default {
-	input: 'src/main.ts',
+	input: "src/main.ts",
 	output: {
 		sourcemap: true,
-		format: 'iife',
-		name: 'app',
-		file: 'out/compiled/bundle.js'
+		format: "iife",
+		name: "app",
+		file: "out/compiled/bundle.js",
 	},
 	plugins: [
 		svelte({
 			preprocess: sveltePreprocess({ sourceMap: !production }),
 			compilerOptions: {
 				// enable run-time checks when not in production
-				dev: !production
-			}
+				dev: !production,
+			},
 		}),
-		
+
 		// If you have external dependencies installed from
 		// npm, you'll most likely need these plugins. In
 		// some cases you'll need additional configuration -
@@ -55,22 +55,22 @@ export default {
 		// https://github.com/rollup/plugins/tree/master/packages/commonjs
 		resolve({
 			browser: true,
-			dedupe: ['svelte']
+			dedupe: ["svelte"],
 		}),
 		commonjs(),
 		typescript({
 			sourceMap: !production,
-			inlineSources: !production
+			inlineSources: !production,
 		}),
 
 		postcss({
 			config: {
-			  path: './postcss.config.js',
+				path: "./postcss.config.js",
 			},
-			extensions: ['.css'],
+			extensions: [".css"],
 			minimize: true,
 			extract: true,
-			output: "bundle.css"
+			output: "bundle.css",
 		}),
 
 		// In dev mode, call `npm run start` once
@@ -79,13 +79,13 @@ export default {
 
 		// Watch the `public` directory and refresh the
 		// browser on changes when not in production
-		!production && livereload('public'),
+		!production && livereload("public"),
 
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
-		production && terser()
+		production && terser(),
 	],
 	watch: {
-		clearScreen: false
-	}
+		clearScreen: false,
+	},
 };
