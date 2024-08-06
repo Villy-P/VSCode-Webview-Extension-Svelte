@@ -44,6 +44,10 @@ This is the VSCode Backend that will contain all files used by the backend.
 | `src/extension/panel.ts`     | This is the class that handles the creation of the Panel. |
 | `src/extension/`             | Place all utility `ts` files here                         |
 
+## Additions
+
+If you want to add other popular libraries to your project, like TailwindCSS, go to [ADDITIONS.md](./ADDITIONS.md).
+
 ## Examples
 
 ### Sending data from the backend to front end
