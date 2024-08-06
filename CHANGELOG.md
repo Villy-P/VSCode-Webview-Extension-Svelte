@@ -4,6 +4,12 @@ All notable changes to the "extension-name" extension will be documented in this
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [Unreleased]
+
+### Added
+
+* docs: add tailwind addition (@Villy-P)
+
 ## [1.0.0] - 2024-8-5
 
 - Initial release
