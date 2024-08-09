@@ -15,6 +15,8 @@ You can find the extension by pressing `Ctrl-Shift-P` and navigating to `Hello W
 
 Before you begin making changes, change your extension details in `package.json` and webview properties in `src/extension/extension.ts` on line `6`.
 
+When you do make a change on the front or backend, use `Ctrl-R` on your Extension Environment to see the changes.
+
 After that, you are good to go!
 Read the `Directory Composition` section to see where to put which files.
 Read the `Examples` section to see examples of what to do.
