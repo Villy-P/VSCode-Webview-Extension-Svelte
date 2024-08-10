@@ -10,27 +10,6 @@ import { spawn } from "child_process";
 
 const production = !process.env.ROLLUP_WATCH;
 
-function serve() {
-	let server;
-
-	function toExit() {
-		if (server) server.kill(0);
-	}
-
-	return {
-		writeBundle() {
-			if (server) return;
-			server = spawn("npm", ["run", "start", "--", "--dev"], {
-				stdio: ["ignore", "inherit", "inherit"],
-				shell: true,
-			});
-
-			process.on("SIGTERM", toExit);
-			process.on("exit", toExit);
-		},
-	};
-}
-
 export default {
 	input: "src/main.ts",
 	output: {
@@ -72,10 +51,6 @@ export default {
 			extract: true,
 			output: "bundle.css",
 		}),
-
-		// In dev mode, call `npm run start` once
-		// the bundle has been generated
-		!production && serve(),
 
 		// Watch the `public` directory and refresh the
 		// browser on changes when not in production

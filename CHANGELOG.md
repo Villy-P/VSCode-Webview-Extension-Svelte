@@ -10,6 +10,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 * docs: add tailwind addition (@Villy-P)
 
+### Removed
+
+* chore: remove serve (@Villy-P)
+
 ## [1.0.0] - 2024-8-5
 
 * Initial release
