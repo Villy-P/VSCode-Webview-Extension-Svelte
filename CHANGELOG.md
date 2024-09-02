@@ -10,6 +10,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 * docs: add tailwind addition (@Villy-P)
 
+### Changed
+
+* chore: changed terser package used (@Villy-P)
+
 ### Removed
 
 * chore: remove serve (@Villy-P)
