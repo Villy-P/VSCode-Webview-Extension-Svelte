@@ -20,7 +20,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 * chore: remove dependency rollup-plugin-terser (@Villy-P)
 * chore: remove dependency rollup-plugin-polyfill-node (@Villy-P)
 * chore: remove dependency rollup-plugin-css-only (@Villy-P)
-* chore: remvoe `spawn` import (@Villy-P)
+* chore: remove `spawn` import (@Villy-P)
 
 ## [1.0.0] - 2024-8-5
 
