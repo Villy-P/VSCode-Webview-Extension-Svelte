@@ -19,6 +19,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 * chore: remove serve (@Villy-P)
 * chore: remove dependency rollup-plugin-terser (@Villy-P)
 * chore: remove dependency rollup-plugin-polyfill-node (@Villy-P)
+* chore: remove dependency rollup-plugin-css-only (@Villy-P)
 
 ## [1.0.0] - 2024-8-5
 
