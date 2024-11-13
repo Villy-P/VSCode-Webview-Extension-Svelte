@@ -95,7 +95,7 @@ Check out the [contributing guidelines](.github/CONTRIBUTING.md).
 
 ## License
 
-File Makeup Viewer is licensed under the [MIT](./LICENSE) license
+VSCode Webview Extension Svelte is licensed under the [MIT](./LICENSE) license
 
 ## Changelog
 
