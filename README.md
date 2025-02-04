@@ -1,5 +1,8 @@
 # VSCode-Webview-Extension-Svelte
 
+> [!Important]
+> VSCode-Webview-Extension-Svelte is currently in the process of updating to use Svelte 5. In the meantime, you can still use this repository with Svelte 4.
+
 A template repository to quickly make a Visual Studio Code Webview Extension using Svelte and Rollup
 
 This repo gives you everything you need to start making your own webview extensions using the power and reactivity of Svelte.
