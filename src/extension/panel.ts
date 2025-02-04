@@ -91,7 +91,7 @@ export class SveltePanel {
 				<link href="${styleUri}" rel="stylesheet" />
                 <script defer nonce="${nonce}" src="${scriptUri}"></script>
                 </head>
-                <body>
+                <body id="app">
                 </body>
             </html>
         `;
