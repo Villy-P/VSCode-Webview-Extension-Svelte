@@ -6,6 +6,8 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## Unreleased
 
+## [1.1.0] - 2025-2-4
+
 ### Changed
 
 * feat: convert project to Svelte 5 Syntax (@Villy-P)
