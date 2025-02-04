@@ -6,6 +6,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## Unreleased
 
+### Changed
+
+* feat: convert project to Svelte 5 Syntax (@Villy-P)
+
 ### Removed
 
 * chore: remove `.vscode/extensions.json` (@Villy-P)
