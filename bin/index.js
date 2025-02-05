@@ -92,6 +92,13 @@ async function runProject() {
         "Other": projectCategories.join("\", \""),
         "extension-keywords": projectKeywords.join("\", \""),
     });
+    createFileNameWithReplace("../package-lock.json", `${projectPath}/package-lock.json`, {
+        "extension-name": projectName
+    });
+    createFileNameWithData("../CHANGELOG.md", `# Changelog`);
+    createFileName("../.vscodeignore", `${projectPath}/.vscodeignore`);
+    createFileName("../.gitignore", `${projectPath}/.gitignore`);
+    createFileName("../.eslintrc.json", `${projectPath}/.eslintrc.json`);
 }
 
 runProject();
