@@ -5,5 +5,8 @@
   "bin": "./index.js",
   "keywords": [],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "terminal-kit": "^3.1.2"
+  }
 }
