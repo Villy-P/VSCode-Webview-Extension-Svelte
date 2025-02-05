@@ -4,13 +4,16 @@ import { existsSync, mkdirSync, readdirSync } from 'fs';
 import { resolve } from 'path';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
-import { confirm, input } from '@inquirer/prompts';
+import { confirm, input, checkbox } from '@inquirer/prompts';
 
 let projectRelativePath = process.argv[2];
 let projectPath = '';
 let projectName = '';
 let projectDescription = '';
 let projectDisplayName = '';
+let projectCategories = [];
+
+const validCategories = ['Programming Languages', 'Snippets', 'Linters', 'Themes', 'Debuggers', 'Formatters', 'Keymaps', 'SCM Providers', 'Other', 'Extension Packs', 'Language Packs', 'Data Science', 'Machine Learning', 'Visualization', 'Notebooks', 'Education', 'Testing'];
 
 async function runProject() {
     if (!process.argv[2])
@@ -39,6 +42,11 @@ async function runProject() {
     projectName = await input({ message: chalk.blue('Enter project name'), default: projectRelativePath });
     projectDescription = await input({ message: chalk.blue('Enter project description'), default: '' });
     projectDisplayName = await input({ message: chalk.blue('Enter project display name'), default: projectName });
+
+    projectCategories = await checkbox({
+        message: "Select project categories",
+        choices: validCategories
+    });
 }
 
 runProject();
