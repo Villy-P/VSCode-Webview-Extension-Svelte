@@ -132,6 +132,14 @@ async function runProject() {
     createFileName("../.vscode/tasks.json", `${projectPath}/.vscode/tasks.json`);
     createFileName("../.vscode/launch.json", `${projectPath}/.vscode/launch.json`);
     createFileName("../.vscode/settings.json", `${projectPath}/.vscode/settings.json`);
+
+    console.log(chalk.green('\n\nProject created successfully!'));
+    console.log(chalk.green('Run the following commands to get started:\n'));
+    if (projectRelativePath !== ".")
+        console.log(chalk.blue(`* cd ${projectRelativePath}`));
+    console.log(chalk.blue('* npm install'));
+    console.log(chalk.blue('* npm run compile'));
+    console.log(chalk.blue('* Press F5 on your keyboard'));
 }
 
 runProject();
