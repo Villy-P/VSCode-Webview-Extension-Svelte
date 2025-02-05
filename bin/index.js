@@ -125,6 +125,13 @@ async function runProject() {
         mkdirSync(`${projectPath}/src/components`);
 
     createFileName("../src/components/data.svelte", `${projectPath}/src/components/data.svelte`);
+
+    if (!existsSync(`${projectPath}/.vscode`))
+        mkdirSync(`${projectPath}/.vscode`);
+
+    createFileName("../.vscode/tasks.json", `${projectPath}/.vscode/tasks.json`);
+    createFileName("../.vscode/launch.json", `${projectPath}/.vscode/launch.json`);
+    createFileName("../.vscode/settings.json", `${projectPath}/.vscode/settings.json`);
 }
 
 runProject();
