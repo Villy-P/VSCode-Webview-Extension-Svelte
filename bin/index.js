@@ -138,6 +138,8 @@ async function runProject() {
     if (projectRelativePath !== ".")
         console.log(chalk.blue(`* cd ${projectRelativePath}`));
     console.log(chalk.blue('* npm install'));
+    if (projectAdditions.includes("Tailwind"))
+        console.log(chalk.blue('* npm install -D tailwindcss autoprefixer'));
     console.log(chalk.blue('* npm run compile'));
     console.log(chalk.blue('* Press F5 on your keyboard'));
 }
