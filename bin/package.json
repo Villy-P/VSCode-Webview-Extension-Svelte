@@ -7,6 +7,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "terminal-kit": "^3.1.2"
+    "chalk": "^5.4.1",
+    "inquirer": "^12.4.1"
   }
 }
