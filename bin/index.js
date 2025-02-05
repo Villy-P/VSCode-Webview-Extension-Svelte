@@ -13,8 +13,10 @@ let projectDescription = '';
 let projectDisplayName = '';
 let projectCategories = [];
 let projectKeywords = [];
+let projectAdditions = [];
 
 const validCategories = ['Programming Languages', 'Snippets', 'Linters', 'Themes', 'Debuggers', 'Formatters', 'Keymaps', 'SCM Providers', 'Other', 'Extension Packs', 'Language Packs', 'Data Science', 'Machine Learning', 'Visualization', 'Notebooks', 'Education', 'Testing'];
+const validAdditions = ["Tailwind"];
 
 async function runProject() {
     if (!process.argv[2])
@@ -54,6 +56,11 @@ async function runProject() {
         default: '' 
     });
     projectKeywords = projectKeywords.split(" ").slice(0, 5);
+
+    projectAdditions = await checkbox({ 
+        message: chalk.blue('Enter additional toolkits (optional)'), 
+        choices: validAdditions
+    });
 }
 
 runProject();
