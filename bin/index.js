@@ -6,6 +6,8 @@ const term = require('terminal-kit').terminal;
 
 const projectName = process.argv[2] || 'my-project';
 const projectPath = path.resolve(projectName);
+let projectDescription = '';
+let projectDisplayName = '';
 
 function promptYesOrNo(question) {
     return new Promise((resolve) => {
@@ -27,7 +29,20 @@ async function checkEmptyDirectory() {
                 term.red("Exiting...\n");
                 process.exit();
             }
+        } else {
+            resolve();
         }
+    });
+}
+
+async function getProjectMetadata() {
+    term.green("\nFirst, let's set up some metadata for your project.\n\n");
+    return new Promise(async (resolve) => {
+        term.blue("Enter a description: ");
+        projectDescription = await term.inputField({}).promise;
+        term.blue("\nEnter a display name: ");
+        projectDisplayName = await term.inputField({}).promise;
+        resolve();
     });
 }
 
@@ -39,6 +54,7 @@ async function runProject() {
         fs.mkdirSync(projectPath);
 
     await checkEmptyDirectory();
+    await getProjectMetadata();
 
     console.log("FINISHED");
     process.exit();
