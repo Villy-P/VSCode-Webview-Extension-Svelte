@@ -32,6 +32,13 @@ async function runProject() {
             process.exit();
         }
     }
+
+    console.log(chalk.green('\nCreating project...'));
+    console.log(chalk.green('Enter project details\n'));
+
+    projectName = await input({ message: chalk.blue('Enter project name'), default: projectRelativePath });
+    projectDescription = await input({ message: chalk.blue('Enter project description'), default: '' });
+    projectDisplayName = await input({ message: chalk.blue('Enter project display name'), default: projectName });
 }
 
 runProject();
