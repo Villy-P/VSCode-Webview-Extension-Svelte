@@ -30,7 +30,7 @@ function createFileNameWithData(writeFileName, data) {
 function createFileNameWithReplace(path, writeFileName, replace) {
     let data = readFileSync(path, 'utf8');
     for (const key in replace)
-        data = data.replace(key, replace[key]);
+        data = data.replaceAll(key, replace[key]);
     writeFileSync(writeFileName, data, 'utf-8');
 }
 
@@ -99,6 +99,32 @@ async function runProject() {
     createFileName("../.vscodeignore", `${projectPath}/.vscodeignore`);
     createFileName("../.gitignore", `${projectPath}/.gitignore`);
     createFileName("../.eslintrc.json", `${projectPath}/.eslintrc.json`);
+
+    if (!existsSync(`${projectPath}/src`))
+        mkdirSync(`${projectPath}/src`);
+
+    createFileName("../src/svelte-shim.d.ts", `${projectPath}/src/svelte-shim.d.ts`);
+    createFileName("../src/main.ts", `${projectPath}/src/main.ts`);
+    createFileName("../src/App.svelte", `${projectPath}/src/App.svelte`);
+
+    if (!existsSync(`${projectPath}/src/extension`))
+        mkdirSync(`${projectPath}/src/extension`);
+
+    createFileNameWithReplace("../src/extension/extension.ts", `${projectPath}/src/extension/extension.ts`, {
+        "extension-name": projectName,
+        "extension-display-name": projectDisplayName,
+    });
+    createFileName("../src/extension/panel.ts", `${projectPath}/src/extension/panel.ts`);
+
+    if (!existsSync(`${projectPath}/src/css`))
+        mkdirSync(`${projectPath}/src/css`);
+
+    createFileName("../src/css/app.css", `${projectPath}/src/css/app.css`);
+
+    if (!existsSync(`${projectPath}/src/components`))
+        mkdirSync(`${projectPath}/src/components`);
+
+    createFileName("../src/components/data.svelte", `${projectPath}/src/components/data.svelte`);
 }
 
 runProject();
