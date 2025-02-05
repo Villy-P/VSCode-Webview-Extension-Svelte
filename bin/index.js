@@ -27,6 +27,13 @@ function createFileNameWithData(writeFileName, data) {
     writeFileSync(writeFileName, data, 'utf-8');
 }
 
+function createFileNameWithReplace(path, writeFileName, replace) {
+    let data = readFileSync(path, 'utf8');
+    for (const key in replace)
+        data = data.replace(key, replace[key]);
+    writeFileSync(writeFileName, data, 'utf-8');
+}
+
 async function runProject() {
     if (!process.argv[2])
         projectRelativePath = await input({ 
@@ -71,11 +78,20 @@ async function runProject() {
         choices: validAdditions
     });
 
+    const README = `# ${projectName}\n\n${projectDescription}\n## Installation\n\n## Usage\n\n## License\n\n## Contributing\n\n## Changelog\n\n## Authors\n\n## Acknowledgements\n\n## Keywords\n\n${projectName} ${projectKeywords.join(" ")}`;
+
     createFileName("../tsconfig.node.json", `${projectPath}/tsconfig.node.json`);
     createFileName("../tsconfig.json", `${projectPath}/tsconfig.json`);
     createFileName("../rollup.config.mjs", `${projectPath}/rollup.config.mjs`);
     createFileName("../postcss.config.js", `${projectPath}/postcss.config.js`);
-    createFileNameWithData(`${projectPath}/README.md`, `# ${projectName}\n\n${projectDescription}\n## Installation\n\n## Usage\n\n## License\n\n## Contributing\n\n## Changelog\n\n## Authors\n\n## Acknowledgements\n\n## Keywords\n\n${projectName} ${projectKeywords.join(" ")}`);
+    createFileNameWithData(`${projectPath}/README.md`, README);
+    createFileNameWithReplace("../package.json", `${projectPath}/package.json`, {
+        "extension-name": projectName,
+        "extension-display-name": projectDisplayName,
+        "extension-description": projectDescription,
+        "Other": projectCategories.join("\", \""),
+        "extension-keywords": projectKeywords.join("\", \""),
+    });
 }
 
 runProject();

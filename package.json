@@ -1,13 +1,16 @@
 {
   "name": "extension-name",
-  "displayName": "Extension Name",
-  "description": "description",
+  "displayName": "extension-display-name",
+  "description": "extension-description",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.92.0"
   },
   "categories": [
     "Other"
+  ],
+  "keywords": [
+    "extension-keywords"
   ],
   "activationEvents": [],
   "main": "./out/extension/extension.js",
