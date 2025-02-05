@@ -45,12 +45,13 @@ async function runProject() {
     projectDisplayName = await input({ message: chalk.blue('Enter project display name'), default: projectName });
 
     projectCategories = await checkbox({
-        message: "Select project categories",
+        message: chalk.blue("Select project categories"),
         choices: validCategories
     });
 
     projectKeywords = await input({ 
-        message: chalk.blue('Enter up to 5 project keywords (seperated by space)'), default: '' 
+        message: chalk.blue('Enter up to 5 project keywords (seperated by space)'), 
+        default: '' 
     });
     projectKeywords = projectKeywords.split(" ").slice(0, 5);
 }
