@@ -10,4 +10,7 @@ const projectPath = path.resolve(projectName);
 if (!process.argv[2])
     term.yellow("WARNING: No project name provided. Using 'my-project' as project name.\n");
 
+if (!fs.existsSync(projectPath))
+    fs.mkdirSync(projectPath);
+
 console.log(projectName, projectPath);
