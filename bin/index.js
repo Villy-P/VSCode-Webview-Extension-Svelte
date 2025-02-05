@@ -12,6 +12,7 @@ let projectName = '';
 let projectDescription = '';
 let projectDisplayName = '';
 let projectCategories = [];
+let projectKeywords = [];
 
 const validCategories = ['Programming Languages', 'Snippets', 'Linters', 'Themes', 'Debuggers', 'Formatters', 'Keymaps', 'SCM Providers', 'Other', 'Extension Packs', 'Language Packs', 'Data Science', 'Machine Learning', 'Visualization', 'Notebooks', 'Education', 'Testing'];
 
@@ -47,6 +48,11 @@ async function runProject() {
         message: "Select project categories",
         choices: validCategories
     });
+
+    projectKeywords = await input({ 
+        message: chalk.blue('Enter up to 5 project keywords (seperated by space)'), default: '' 
+    });
+    projectKeywords = projectKeywords.split(" ").slice(0, 5);
 }
 
 runProject();
