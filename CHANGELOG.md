@@ -6,6 +6,8 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## Unreleased
 
+## [1.2.0] - 2024-2-5
+
 ### Changed
 
 * feat: Converted project into an `npx` script (@Villy-P)
