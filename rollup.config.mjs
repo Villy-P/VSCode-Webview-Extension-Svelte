@@ -5,7 +5,6 @@ import terser from "@rollup/plugin-terser";
 import { sveltePreprocess } from "svelte-preprocess";
 import typescript from "@rollup/plugin-typescript";
 import postcss from "rollup-plugin-postcss";
-/* twimport */
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -48,10 +47,7 @@ export default {
 			extensions: [".css"],
 			minimize: true,
 			extract: true,
-			output: "bundle.css",
-			plugins: [
-				/* twplugin */
-			]
+			output: "bundle.css"
 		}),
 
 		// If we're building for production (npm run build

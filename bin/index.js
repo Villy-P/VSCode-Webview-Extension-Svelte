@@ -82,16 +82,10 @@ async function runProject() {
 
     createFileName("../tsconfig.node.json", `${projectPath}/tsconfig.node.json`);
     createFileName("../tsconfig.json", `${projectPath}/tsconfig.json`);
-    if (projectAdditions.includes("Tailwind")) 
-        createFileNameWithReplace("../rollup.config.mjs", `${projectPath}/rollup.config.mjs`, {
-            "/* twimport */": "import tailwindcss from 'tailwindcss';\nimport tailwindConfig from './tailwind.config.js';",
-            "/* twplugin */": "tailwindcss(tailwindConfig),"
-        });
-    else
-        createFileName("../rollup.config.mjs", `${projectPath}/rollup.config.mjs`);
+    createFileName("../rollup.config.mjs", `${projectPath}/rollup.config.mjs`);
     if (projectAdditions.includes("Tailwind")) 
         createFileNameWithReplace("../postcss.config.js", `${projectPath}/postcss.config.js`, {
-            "/* twconfig */": "tailwindcss: {},"
+            "/* twconfig */": '"@tailwindcss/postcss": {}'
         });
     else
         createFileName("../postcss.config.js", `${projectPath}/postcss.config.js`);
@@ -132,7 +126,7 @@ async function runProject() {
 
     if (projectAdditions.includes("Tailwind"))
         createFileNameWithReplace("../src/css/app.css", `${projectPath}/src/css/app.css`, {
-            "/* twimport */": "@tailwind base;\n@tailwind components;\n@tailwind utilities;"
+            "/* twimport */": '@import "tailwindcss";'
         });
     else
         createFileName("../src/css/app.css", `${projectPath}/src/css/app.css`);
@@ -158,7 +152,8 @@ async function runProject() {
         console.log(chalk.blue(`* cd ${projectRelativePath}`));
     console.log(chalk.blue('* npm install'));
     if (projectAdditions.includes("Tailwind"))
-        console.log(chalk.blue('* npm install -D tailwindcss autoprefixer'));
+        console.log(chalk.blue('* npm install tailwindcss @tailwindcss/postcss postcss'));
+    console.log(chalk.blue('* code .'));
     console.log(chalk.blue('* npm run compile'));
     console.log(chalk.blue('* Press F5 on your keyboard'));
 }
