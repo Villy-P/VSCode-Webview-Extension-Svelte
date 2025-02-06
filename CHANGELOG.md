@@ -6,6 +6,11 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## Unreleased
 
+### Changed
+
+* feat: Converted project into an `npx` script (@Villy-P)
+* chore: Simpilified Tailwind CSS Addition (@Villy-P)
+
 ## [1.1.0] - 2025-2-4
 
 ### Changed

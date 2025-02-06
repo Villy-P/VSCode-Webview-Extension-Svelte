@@ -47,7 +47,7 @@ export default {
 			extensions: [".css"],
 			minimize: true,
 			extract: true,
-			output: "bundle.css",
+			output: "bundle.css"
 		}),
 
 		// If we're building for production (npm run build

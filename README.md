@@ -7,19 +7,18 @@ It automatically comes with everything you need, from components to CSS.
 
 ## Startup
 
-You can start using this repository by clicking the `Use the template` button on the [Github Page](https://github.com/Villy-P/VSCode-Webview-Extension-Svelte).
+You can create a template repository by running `npx vscode-webview-extension-svelte-generator folder-name` in your terminal.
 
-After you create your repo, you can run `npm run compile` to begin compiling the frontend and backend, and press `F5` to start the Extension enviroment.
+After you create your repo, follow the install steps to get started.
+To run your extension, you can run `npm run compile` to begin compiling the frontend and backend, and press `F5` to start the Extension enviroment.
 
 You can find the extension by pressing `Ctrl-Shift-P` and navigating to `Hello World`.
-
-Before you begin making changes, change your extension details in `package.json` and webview properties in `src/extension/extension.ts` on line `6`.
 
 When you do make a change on the front or backend, use `Ctrl-R` on your Extension Environment to see the changes.
 You can also close the webview page and reopen it using `Ctrl-Shift-P`.
 
 After that, you are good to go!
-Read the `Directory Composition` section to see where to put which files.
+Read the `Directory Composition` section to see where to find which files.
 Read the `Examples` section to see examples of what to do.
 
 ## Directory Composition
@@ -49,7 +48,9 @@ This is the VSCode Backend that will contain all files used by the backend.
 
 ## Additions
 
-If you want to add other popular libraries to your project, like TailwindCSS, go to [ADDITIONS.md](./ADDITIONS.md).
+VSCode-Webview-Extension-Svelte supports libraries like TailwindCSS, which you can add in the setup script.
+
+If you want to add other popular libraries to your project, and did not do so in the setup script, go to [ADDITIONS.md](./ADDITIONS.md).
 
 ## Examples
 
