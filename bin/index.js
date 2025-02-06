@@ -138,6 +138,9 @@ async function runProject() {
     createFileName("../.vscode/launch.json", `${projectPath}/.vscode/launch.json`);
     createFileName("../.vscode/settings.json", `${projectPath}/.vscode/settings.json`);
 
+    if (projectAdditions.includes("Tailwind"))
+        createFileName("./additions/tailwind.config.js", `${projectPath}/tailwind.config.js`);
+
     console.log(chalk.green('\n\nProject created successfully!'));
     console.log(chalk.green('Run the following commands to get started:\n'));
     if (projectRelativePath !== ".")
