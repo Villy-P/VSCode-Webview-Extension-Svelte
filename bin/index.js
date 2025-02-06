@@ -124,7 +124,12 @@ async function runProject() {
     if (!existsSync(`${projectPath}/src/css`))
         mkdirSync(`${projectPath}/src/css`);
 
-    createFileName("../src/css/app.css", `${projectPath}/src/css/app.css`);
+    if (projectAdditions.includes("Tailwind"))
+        createFileNameWithReplace("../src/css/app.css", `${projectPath}/src/css/app.css`, {
+            "/* twimport */": "@tailwind base;\n@tailwind components;\n@tailwind utilities;"
+        });
+    else
+        createFileName("../src/css/app.css", `${projectPath}/src/css/app.css`);
 
     if (!existsSync(`${projectPath}/src/components`))
         mkdirSync(`${projectPath}/src/components`);
