@@ -80,71 +80,68 @@ async function runProject() {
 
     const README = `# ${projectName}\n\n${projectDescription}\n## Installation\n\n## Usage\n\n## License\n\n## Contributing\n\n## Changelog\n\n## Authors\n\n## Acknowledgements\n\n## Keywords\n\n${projectName} ${projectKeywords.join(" ")}`;
 
-    createFileName("../tsconfig.node.json", `${projectPath}/tsconfig.node.json`);
-    createFileName("../tsconfig.json", `${projectPath}/tsconfig.json`);
-    createFileName("../rollup.config.mjs", `${projectPath}/rollup.config.mjs`);
+    createFileName("./tsconfig.node.json", `${projectPath}/tsconfig.node.json`);
+    createFileName("./tsconfig.json", `${projectPath}/tsconfig.json`);
+    createFileName("./rollup.config.mjs", `${projectPath}/rollup.config.mjs`);
     if (projectAdditions.includes("Tailwind")) 
-        createFileNameWithReplace("../postcss.config.js", `${projectPath}/postcss.config.js`, {
+        createFileNameWithReplace("./postcss.config.js", `${projectPath}/postcss.config.js`, {
             "/* twconfig */": '"@tailwindcss/postcss": {}'
         });
     else
-        createFileName("../postcss.config.js", `${projectPath}/postcss.config.js`);
+        createFileName("./postcss.config.js", `${projectPath}/postcss.config.js`);
     createFileNameWithData(`${projectPath}/README.md`, README);
-    createFileNameWithReplace("../package.json", `${projectPath}/package.json`, {
+    createFileNameWithReplace("./bin/src/package.json", `${projectPath}/package.json`, {
         "extension-name": projectName,
         "extension-display-name": projectDisplayName,
         "extension-description": projectDescription,
         "Other": projectCategories.join("\", \""),
         "extension-keywords": projectKeywords.join("\", \""),
     });
-    createFileNameWithReplace("../package-lock.json", `${projectPath}/package-lock.json`, {
+    createFileNameWithReplace("./bin/src/package-lock.json", `${projectPath}/package-lock.json`, {
         "extension-name": projectName
     });
-    createFileNameWithData("../CHANGELOG.md", `# Changelog`);
-    createFileName("../.vscodeignore", `${projectPath}/.vscodeignore`);
-    createFileName("../.gitignore", `${projectPath}/.gitignore`);
-    createFileName("../.eslintrc.json", `${projectPath}/.eslintrc.json`);
+    createFileNameWithData("./CHANGELOG.md", `# Changelog`);
+    createFileName("./.vscodeignore", `${projectPath}/.vscodeignore`);
+    createFileName("./.gitignore", `${projectPath}/.gitignore`);
+    createFileName("./.eslintrc.json", `${projectPath}/.eslintrc.json`);
 
     if (!existsSync(`${projectPath}/src`))
         mkdirSync(`${projectPath}/src`);
 
-    createFileName("../src/svelte-shim.d.ts", `${projectPath}/src/svelte-shim.d.ts`);
-    createFileName("../src/main.ts", `${projectPath}/src/main.ts`);
-    createFileName("../src/App.svelte", `${projectPath}/src/App.svelte`);
+    createFileName("./src/svelte-shim.d.ts", `${projectPath}/src/svelte-shim.d.ts`);
+    createFileName("./src/main.ts", `${projectPath}/src/main.ts`);
+    createFileName("./src/App.svelte", `${projectPath}/src/App.svelte`);
 
     if (!existsSync(`${projectPath}/src/extension`))
         mkdirSync(`${projectPath}/src/extension`);
 
-    createFileNameWithReplace("../src/extension/extension.ts", `${projectPath}/src/extension/extension.ts`, {
+    createFileNameWithReplace("./src/extension/extension.ts", `${projectPath}/src/extension/extension.ts`, {
         "extension-name": projectName,
         "extension-display-name": projectDisplayName,
     });
-    createFileName("../src/extension/panel.ts", `${projectPath}/src/extension/panel.ts`);
+    createFileName("./src/extension/panel.ts", `${projectPath}/src/extension/panel.ts`);
 
     if (!existsSync(`${projectPath}/src/css`))
         mkdirSync(`${projectPath}/src/css`);
 
     if (projectAdditions.includes("Tailwind"))
-        createFileNameWithReplace("../src/css/app.css", `${projectPath}/src/css/app.css`, {
+        createFileNameWithReplace("./src/css/app.css", `${projectPath}/src/css/app.css`, {
             "/* twimport */": '@import "tailwindcss";'
         });
     else
-        createFileName("../src/css/app.css", `${projectPath}/src/css/app.css`);
+        createFileName("./src/css/app.css", `${projectPath}/src/css/app.css`);
 
     if (!existsSync(`${projectPath}/src/components`))
         mkdirSync(`${projectPath}/src/components`);
 
-    createFileName("../src/components/data.svelte", `${projectPath}/src/components/data.svelte`);
+    createFileName("./src/components/data.svelte", `${projectPath}/src/components/data.svelte`);
 
     if (!existsSync(`${projectPath}/.vscode`))
         mkdirSync(`${projectPath}/.vscode`);
 
-    createFileName("../.vscode/tasks.json", `${projectPath}/.vscode/tasks.json`);
-    createFileName("../.vscode/launch.json", `${projectPath}/.vscode/launch.json`);
-    createFileName("../.vscode/settings.json", `${projectPath}/.vscode/settings.json`);
-
-    if (projectAdditions.includes("Tailwind"))
-        createFileName("./additions/tailwind.config.js", `${projectPath}/tailwind.config.js`);
+    createFileName("./.vscode/tasks.json", `${projectPath}/.vscode/tasks.json`);
+    createFileName("./.vscode/launch.json", `${projectPath}/.vscode/launch.json`);
+    createFileName("./.vscode/settings.json", `${projectPath}/.vscode/settings.json`);
 
     console.log(chalk.green('\n\nProject created successfully!'));
     console.log(chalk.green('Run the following commands to get started:\n'));
