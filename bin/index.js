@@ -83,7 +83,12 @@ async function runProject() {
     createFileName("../tsconfig.node.json", `${projectPath}/tsconfig.node.json`);
     createFileName("../tsconfig.json", `${projectPath}/tsconfig.json`);
     createFileName("../rollup.config.mjs", `${projectPath}/rollup.config.mjs`);
-    createFileName("../postcss.config.js", `${projectPath}/postcss.config.js`);
+    if (projectAdditions.includes("Tailwind")) 
+        createFileNameWithReplace("../postcss.config.js", `${projectPath}/postcss.config.js`, {
+            "/* twconfig */": "tailwindcss: {},"
+        });
+    else
+        createFileName("../postcss.config.js", `${projectPath}/postcss.config.js`);
     createFileNameWithData(`${projectPath}/README.md`, README);
     createFileNameWithReplace("../package.json", `${projectPath}/package.json`, {
         "extension-name": projectName,
