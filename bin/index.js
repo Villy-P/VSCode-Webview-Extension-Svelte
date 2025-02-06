@@ -82,7 +82,13 @@ async function runProject() {
 
     createFileName("../tsconfig.node.json", `${projectPath}/tsconfig.node.json`);
     createFileName("../tsconfig.json", `${projectPath}/tsconfig.json`);
-    createFileName("../rollup.config.mjs", `${projectPath}/rollup.config.mjs`);
+    if (projectAdditions.includes("Tailwind")) 
+        createFileNameWithReplace("../rollup.config.mjs", `${projectPath}/rollup.config.mjs`, {
+            "/* twimport */": "import tailwindcss from 'tailwindcss';\nimport tailwindConfig from './tailwind.config.js';",
+            "/* twplugin */": "tailwindcss(tailwindConfig),"
+        });
+    else
+        createFileName("../rollup.config.mjs", `${projectPath}/rollup.config.mjs`);
     if (projectAdditions.includes("Tailwind")) 
         createFileNameWithReplace("../postcss.config.js", `${projectPath}/postcss.config.js`, {
             "/* twconfig */": "tailwindcss: {},"
