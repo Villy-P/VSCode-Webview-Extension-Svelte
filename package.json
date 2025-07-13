@@ -1,6 +1,6 @@
 {
   "name": "vscode-webview-extension-svelte-generator",
-  "version": "1.0.1",
+  "version": "1.2.1",
   "description": "A template repository to quickly make a Visual Studio Code Webview Extension using Svelte 5 and Rollup",
   "bin": {
     "vscode-webview-extension-svelte-generator": "./bin/index.mjs"
@@ -17,7 +17,7 @@
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
-    "compile": "conc \"rollup -c -w\" \"tsc --build .\\tsconfig.node.json -w\"",
+    "compile": "conc \"rollup -c -w\" \"tsc --build ./tsconfig.node.json -w\"",
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",

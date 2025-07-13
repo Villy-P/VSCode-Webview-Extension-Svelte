@@ -6,14 +6,20 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## Unreleased
 
-## [1.2.0] - 2024-2-5
+## [1.2.1] - 2025-7-13
+
+### Fixed
+
+* fix: use forward slash in `npm compile` script to support Unix-like systems (@Villy-P) — issue introduced by @ethanc8
+
+## [1.2.0] - 2024-12-5
 
 ### Changed
 
 * feat: Converted project into an `npx` script (@Villy-P)
 * chore: Simpilified Tailwind CSS Addition (@Villy-P)
 
-## [1.1.0] - 2025-2-4
+## [1.1.0] - 2025-12-4
 
 ### Changed
 
