@@ -1,6 +1,6 @@
 {
   "name": "vscode-webview-extension-svelte-generator",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "A template repository to quickly make a Visual Studio Code Webview Extension using Svelte 5 and Rollup",
   "bin": {
     "vscode-webview-extension-svelte-generator": "./bin/index.mjs"
@@ -44,8 +44,10 @@
     "svelte": "^5.19.6",
     "svelte-preprocess": "^6.0.2",
     "tslib": "^2.6.3",
-    "typescript": "^5.3.3",
-    "chalk": "^5.4.1",
-    "inquirer": "^12.4.1"
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "inquirer": "^13.3.2"
   }
 }
