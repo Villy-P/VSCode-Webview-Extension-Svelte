@@ -109,7 +109,7 @@ async function runProject() {
     });
     createFileNameWithData("./CHANGELOG.md", `# Changelog`);
     createFileName("./.vscodeignore", `${projectPath}/.vscodeignore`);
-    createFileName("./.gitignore", `${projectPath}/.gitignore`);
+    createFileName("./bin/src/.gitignore.txt", `${projectPath}/.gitignore`);
     createFileName("./.eslintrc.json", `${projectPath}/.eslintrc.json`);
 
     if (!existsSync(`${projectPath}/src`))
