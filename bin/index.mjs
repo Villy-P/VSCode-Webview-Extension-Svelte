@@ -5,6 +5,11 @@ import { resolve } from 'path';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
 import { confirm, input, checkbox } from '@inquirer/prompts';
+import { dirname, resolve, join } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const templateRoot = resolve(__dirname, '..');
 
 let projectRelativePath = process.argv[2];
 let projectPath = '';
@@ -18,20 +23,22 @@ let projectAdditions = [];
 const validCategories = ['Programming Languages', 'Snippets', 'Linters', 'Themes', 'Debuggers', 'Formatters', 'Keymaps', 'SCM Providers', 'Other', 'Extension Packs', 'Language Packs', 'Data Science', 'Machine Learning', 'Visualization', 'Notebooks', 'Education', 'Testing'];
 const validAdditions = ["Tailwind"];
 
-function createFileName(path, writeFileName) {
-    const data = readFileSync(path, 'utf8');
-    writeFileSync(writeFileName, data, 'utf-8');
+function createFileName(sourceRelPath, writeFilePath) {
+    const sourcePath = join(templateRoot, sourceRelPath);
+    const data = readFileSync(sourcePath, 'utf8');
+    writeFileSync(writeFilePath, data, 'utf-8');
 }
 
 function createFileNameWithData(writeFileName, data) {
     writeFileSync(writeFileName, data, 'utf-8');
 }
 
-function createFileNameWithReplace(path, writeFileName, replace) {
-    let data = readFileSync(path, 'utf8');
+function createFileNameWithReplace(sourceRelPath, writeFilePath, replace) {
+    const sourcePath = join(templateRoot, sourceRelPath);
+    let data = readFileSync(sourcePath, 'utf8');
     for (const key in replace)
         data = data.replaceAll(key, replace[key]);
-    writeFileSync(writeFileName, data, 'utf-8');
+    writeFileSync(writeFilePath, data, 'utf-8');
 }
 
 async function runProject() {
