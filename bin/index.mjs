@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 import { existsSync, fstat, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'fs';
-import { resolve } from 'path';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
 import { confirm, input, checkbox } from '@inquirer/prompts';

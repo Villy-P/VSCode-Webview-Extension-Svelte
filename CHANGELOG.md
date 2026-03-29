@@ -6,7 +6,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## Unreleased
 
-## [1.2.3] - 2026-3-29
+## [1.2.4] - 2026-3-29
 
 * fix: relative file imports using template (@Villy-P)
 
